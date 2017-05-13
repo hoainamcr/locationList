@@ -1,0 +1,66 @@
+@import 'variables';
+
+*{
+    box-sizing: border-box;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #F5F5F5;
+    z-index: 10;
+    padding-top: 30px;
+    @include box-shadow(0px, 0px, 10px, rgba(0, 0, 0, 0.3));
+}
+
+#content{
+    position: fixed;
+    padding-left: 400px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.listScroll{
+    @include calc('height', '100% - 222px', true);
+    background: #fff;
+    >div{
+        overflow-x: hidden !important;
+        margin-bottom: 0 !important;
+    }
+    ul{
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        li{
+            width: 100%;
+            padding: 10px 15px;
+            border-top: 1px solid $cl-line;
+            position: relative;
+            cursor: pointer;
+            &:first-child{
+                border-top: none;
+            }
+            &:hover{
+                .gr-btn{
+                    opacity: 1;
+                }
+            }
+        }
+        .gr-btn{
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            @include translate(0, -50%);
+            opacity: 0;
+            @include transition();
+        }
+    }
+    .track-horizontal{
+        display: none;
+    }
+}

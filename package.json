@@ -1,0 +1,51 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel",
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoainamcr/locationList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoainamcr/locationList/issues"
+  },
+  "homepage": "https://github.com/hoainamcr/locationList#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.17.1",
+    "create-react-class": "^15.5.3",
+    "css-loader": "^0.28.1",
+    "google-map-react": "^0.24.0",
+    "google-maps-react": "^1.0.19",
+    "mongoose": "^4.9.8",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
+    "react-custom-scrollbars": "^4.1.1",
+    "react-dom": "^15.5.4",
+    "react-fontawesome": "^1.6.1",
+    "react-icons": "^2.2.5",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "muicss": "^0.9.16"
+  }
+}
