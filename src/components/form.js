@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
-import {addData, isUpdate, updateData} from '../actions';
+import {addData, isUpdate, updateData, loadData} from '../actions';
 import {
     Container,
     Button,
@@ -9,6 +9,7 @@ import {
     Row,
     Col
 } from 'muicss/react';
+var $ = require("jquery");
 
 class FormBox extends Component {
 
@@ -19,7 +20,8 @@ class FormBox extends Component {
             ward: '',
             District: '',
             city: '',
-            country: 'Việt Nam'
+            country: 'Việt Nam',
+            error: ''
         };
 
         this.onChange = this.onChange.bind(this);
@@ -35,7 +37,17 @@ class FormBox extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.props.addData(this.state);
+        if(this.state.street && this.state.ward && this.state.District && this.state.city){
+            this.props.addData(this.state);
+            this.setState({
+                [e.target.name]: ''
+            })
+            document.getElementById('error-mess').innerText='';
+        }else{
+            document.getElementById('error-mess').innerText='Please fill in all information!';
+        }
+
+
     }
 
     cancelEdit(e) {
@@ -45,8 +57,15 @@ class FormBox extends Component {
 
     updateEdit(e){
         e.preventDefault();
-        this.props.updateData(this.props.isEdit[1], this.state);
-        this.props.isUpdate();
+        if(this.state.street && this.state.ward && this.state.District && this.state.city){
+            this.props.updateData(this.props.isEdit[1], this.state);
+            this.props.isUpdate();
+            this.props.loadData();
+            document.getElementById('error-mess').innerText='';
+        }else{
+            document.getElementById('error-mess').innerText='Please fill in all information!';
+        }
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -75,7 +94,6 @@ class FormBox extends Component {
                 <Container>
                     <Form onSubmit={this.onSubmit}>
                         <legend>Location</legend>
-
                         <Row>
                             <Col xs="6">
                                 <Input
@@ -120,6 +138,7 @@ class FormBox extends Component {
                                 />
                             </Col>
                         </Row>
+                        <div id="error-mess"></div>
                         <Button onClick={this.updateEdit.bind(this)} color="primary">Update</Button>
                         <Button onClick={this.cancelEdit.bind(this)} color="danger">Cancel</Button>
                     </Form>
@@ -174,6 +193,7 @@ class FormBox extends Component {
                             />
                         </Col>
                     </Row>
+                    <div id="error-mess"></div>
                     <Button color="primary">Save</Button>
                 </Form>
             </Container>
@@ -182,7 +202,6 @@ class FormBox extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.isEdit)
     return {
         data: state.list,
         isEdit: state.isEdit
@@ -190,5 +209,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    addData, isUpdate, updateData
+    addData, isUpdate, updateData, loadData
 })(FormBox);

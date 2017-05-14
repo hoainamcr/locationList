@@ -74,7 +74,7 @@ class ListAdd extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.list,
-        isEdit: state.isEdits
+        isEdit: state.isEdit
     }
 };
 

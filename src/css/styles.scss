@@ -65,3 +65,12 @@
         display: none;
     }
 }
+
+#error-mess{
+    color: #ff0000;
+    font-style: italic;
+}
+
+input.err{
+    border-color: #ff0000;
+}

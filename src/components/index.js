@@ -5,6 +5,7 @@ import store from '../store';
 import FormBox from "./form";
 import ListAdd from "./list";
 import Map from "./map";
+
 const css = require('../css/styles.scss');
 
 class App extends Component {

@@ -62,7 +62,7 @@ export const delData = (id, index)=>{
 };
 
 
-export const isUpdate = (id, index, tg: false)=>{
+export const isUpdate = (id, index, tg = false) => {
     return (dispatch) => {
         dispatch ({
             type: types.EDIT_DATA,
