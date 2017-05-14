@@ -9,7 +9,6 @@ import {
     Row,
     Col
 } from 'muicss/react';
-var $ = require("jquery");
 
 class FormBox extends Component {
 
