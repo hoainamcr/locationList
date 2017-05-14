@@ -8,17 +8,21 @@
 
 **_Collection_**: listlocation 
 
-### Run Server
+### Install
 
 ```
 npm i [enter]
 
 npm install -g nodemon  [enter]
+```
 
+### Console 1 run server
+
+```
 nodemon [enter]  / node index [enter]
 ```
 
-### Run Webpack
+### Console 2 Run Webpack
 
 ```
 npm run webpack
