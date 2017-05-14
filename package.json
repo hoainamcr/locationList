@@ -27,6 +27,7 @@
     "body-parser": "^1.17.1",
     "create-react-class": "^15.5.3",
     "css-loader": "^0.28.1",
+    "express": "^4.15.2",
     "google-map-react": "^0.24.0",
     "google-maps-react": "^1.0.19",
     "mongoose": "^4.9.8",
