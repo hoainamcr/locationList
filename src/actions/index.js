@@ -90,7 +90,6 @@ export const oneData = (id, index)=>{
 };
 
 export const updateData = (id, data)=>{
-    console.log(id, data)
     return (dispatch) => {
         fetch('http://localhost:3000/api/updatelocation/'+id, {
             method: 'PUT',

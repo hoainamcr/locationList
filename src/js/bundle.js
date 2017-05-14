@@ -7866,7 +7866,6 @@ var oneData = exports.oneData = function oneData(id, index) {
 };
 
 var updateData = exports.updateData = function updateData(id, data) {
-    console.log(id, data);
     return function (dispatch) {
         fetch('http://localhost:3000/api/updatelocation/' + id, {
             method: 'PUT',
@@ -13493,7 +13492,7 @@ var FormBox = function (_Component) {
         }
     }, {
         key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
+        value: function componentWillReceiveProps() {
             if (this.props.isEdit[0]) {
                 this.setState({
                     street: this.props.data[this.props.isEdit[2]].street,

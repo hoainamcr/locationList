@@ -46,8 +46,6 @@ class FormBox extends Component {
         }else{
             document.getElementById('error-mess').innerText='Please fill in all information!';
         }
-
-
     }
 
     cancelEdit(e) {
@@ -68,7 +66,7 @@ class FormBox extends Component {
 
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps() {
         if (this.props.isEdit[0]){
             this.setState({
                 street: this.props.data[this.props.isEdit[2]].street,
