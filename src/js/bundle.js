@@ -13442,8 +13442,7 @@ var FormBox = function (_Component) {
             ward: '',
             District: '',
             city: '',
-            country: 'Việt Nam',
-            error: ''
+            country: 'Việt Nam'
         };
 
         _this.onChange = _this.onChange.bind(_this);
@@ -13474,6 +13473,7 @@ var FormBox = function (_Component) {
         value: function cancelEdit(e) {
             e.preventDefault();
             this.props.isUpdate();
+            document.getElementById('error-mess').innerText = '';
         }
     }, {
         key: 'updateEdit',
@@ -13490,13 +13490,14 @@ var FormBox = function (_Component) {
         }
     }, {
         key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps() {
-            if (this.props.isEdit[0]) {
+        value: function componentWillReceiveProps(nextProps) {
+            console.log(nextProps.isEdit);
+            if (nextProps.isEdit && nextProps.isEdit[0]) {
                 this.setState({
-                    street: this.props.data[this.props.isEdit[2]].street,
-                    ward: this.props.data[this.props.isEdit[2]].ward,
-                    District: this.props.data[this.props.isEdit[2]].District,
-                    city: this.props.data[this.props.isEdit[2]].city,
+                    street: this.props.data[nextProps.isEdit[2]].street,
+                    ward: this.props.data[nextProps.isEdit[2]].ward,
+                    District: this.props.data[nextProps.isEdit[2]].District,
+                    city: this.props.data[nextProps.isEdit[2]].city,
                     country: 'Việt Nam'
                 });
             } else {
@@ -13802,6 +13803,7 @@ var ListAdd = function (_Component2) {
         key: 'edit',
         value: function edit(id, index) {
             this.props.isUpdate(id, index, true);
+            document.getElementById('error-mess').innerText = '';
         }
     }, {
         key: 'remove',

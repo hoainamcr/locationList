@@ -52,6 +52,7 @@ class ListAdd extends Component {
 
     edit(id, index){
         this.props.isUpdate(id, index, true);
+        document.getElementById('error-mess').innerText='';
     }
 
     remove(id, index){

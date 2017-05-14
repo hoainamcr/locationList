@@ -19,8 +19,7 @@ class FormBox extends Component {
             ward: '',
             District: '',
             city: '',
-            country: 'Việt Nam',
-            error: ''
+            country: 'Việt Nam'
         };
 
         this.onChange = this.onChange.bind(this);
@@ -50,6 +49,7 @@ class FormBox extends Component {
     cancelEdit(e) {
         e.preventDefault();
         this.props.isUpdate();
+        document.getElementById('error-mess').innerText='';
     }
 
     updateEdit(e){
@@ -65,13 +65,14 @@ class FormBox extends Component {
 
     }
 
-    componentWillReceiveProps() {
-        if (this.props.isEdit[0]){
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.isEdit);
+        if(nextProps.isEdit && nextProps.isEdit[0]){
             this.setState({
-                street: this.props.data[this.props.isEdit[2]].street,
-                ward: this.props.data[this.props.isEdit[2]].ward,
-                District: this.props.data[this.props.isEdit[2]].District,
-                city: this.props.data[this.props.isEdit[2]].city,
+                street: this.props.data[nextProps.isEdit[2]].street,
+                ward: this.props.data[nextProps.isEdit[2]].ward,
+                District: this.props.data[nextProps.isEdit[2]].District,
+                city: this.props.data[nextProps.isEdit[2]].city,
                 country: 'Việt Nam'
             });
         }else{
@@ -81,7 +82,7 @@ class FormBox extends Component {
                 District: '',
                 city: '',
                 country: 'Việt Nam'
-            });
+            })
         }
     }
 
