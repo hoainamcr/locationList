@@ -15,7 +15,7 @@ npm i [enter]
 
 npm install -g nodemon  [enter]
 
-nodemon [enter]
+nodemon [enter]  / node index [enter]
 ```
 
 ### Run Webpack
