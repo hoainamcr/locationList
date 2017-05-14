@@ -22,6 +22,10 @@ npm install -g nodemon  [enter]
 nodemon [enter]  / node index [enter]
 ```
 
+run browser and type http://localhost:3000/
+
+# For Dev
+
 ### Console 2 Run Webpack
 
 ```
