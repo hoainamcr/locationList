@@ -19,7 +19,11 @@ npm install -g nodemon  [enter]
 ### Console 1 run server
 
 ```
-nodemon [enter]  / node index [enter]
+nodemon [enter]
+```
+or
+```
+node index [enter]
 ```
 
 run browser and type http://localhost:3000/
