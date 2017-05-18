@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {CSVLink, CSVDownload} from 'react-csv';
 import {
-    Container,
-    Button
+    Container
 } from 'muicss/react';
 import {connect} from 'react-redux';
 import { loadData } from '../actions';
@@ -14,8 +13,6 @@ class ExportCSV extends Component {
     }
 
     render (){
-        // var data = JSON.stringify(this.props.data);
-        console.log(this.props.data)
         const CSVdata = this.props.data;
         return(
             <Container className="gr-btn-ex">
