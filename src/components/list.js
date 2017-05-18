@@ -22,7 +22,7 @@ class ListItem extends Component {
 
     render() {
         return (
-            <li id={this.props.id} >
+            <li id={this.props.id}>
                 {this.props.children}
                 <div className="gr-btn">
                     <Button onClick={this.editLocal.bind(this)} className="mui-btn mui-btn--small mui-btn--primary">

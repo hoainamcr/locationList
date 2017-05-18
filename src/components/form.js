@@ -66,7 +66,6 @@ class FormBox extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.isEdit);
         if(nextProps.isEdit && nextProps.isEdit[0]){
             this.setState({
                 street: this.props.data[nextProps.isEdit[2]].street,

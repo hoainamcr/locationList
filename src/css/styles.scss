@@ -27,7 +27,7 @@
 }
 
 .listScroll{
-    @include calc('height', '100% - 222px', true);
+    @include calc('height', '100% - 270px', true);
     background: #fff;
     >div{
         overflow-x: hidden !important;
@@ -73,4 +73,11 @@
 
 input.err{
     border-color: #ff0000;
+}
+
+.gr-btn-ex{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
