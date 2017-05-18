@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import { connect } from 'react-redux';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { loadData, delData, isUpdate } from '../actions';
+import { loadData, delData, isUpdate, clickLocation } from '../actions';
 
-var FontAwesome = require('react-fontawesome');
+let FontAwesome = require('react-fontawesome');
 import {
     Button
 } from 'muicss/react';
@@ -11,18 +11,23 @@ import {
 class ListItem extends Component {
 
     removeLocal() {
-        var {id, handleRemove, index} = this.props;
+        let {id, handleRemove, index} = this.props;
         handleRemove(id, index);
     }
 
     editLocal() {
-        var {id, handleEdit, index} = this.props;
+        let {id, handleEdit, index} = this.props;
         handleEdit(id, index);
+    }
+
+    clickLocation() {
+        let {id, handleClick, index} = this.props;
+        handleClick(index);
     }
 
     render() {
         return (
-            <li id={this.props.id}>
+            <li id={this.props.id} onClick={this.clickLocation.bind(this)}>
                 {this.props.children}
                 <div className="gr-btn">
                     <Button onClick={this.editLocal.bind(this)} className="mui-btn mui-btn--small mui-btn--primary">
@@ -59,13 +64,17 @@ class ListAdd extends Component {
         this.props.delData(id, index);
     }
 
+    clLocation(index){
+        this.props.clickLocation(index);
+    }
+
     render () {
         return (
                 <Scrollbars
                     className="listScroll"
                 >
                     <ul>
-                        {this.props.data.map((e, i) => <ListItem handleEdit={this.edit.bind(this)} handleRemove={this.remove.bind(this)} key={i} id={e._id} index={i}>{e.street + ', ' + e.ward + ', ' + e.District + ', ' + e.city}</ListItem>)}
+                        {this.props.data.map((e, i) => <ListItem handleEdit={this.edit.bind(this)} handleRemove={this.remove.bind(this)} handleClick={this.clLocation.bind(this)} key={i} id={e._id} index={i}>{e.street + ', ' + e.ward + ', ' + e.District + ', ' + e.city}</ListItem>)}
                     </ul>
                 </Scrollbars>
         )
@@ -80,5 +89,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-    loadData, delData, isUpdate
+    loadData, delData, isUpdate, clickLocation
 })(ListAdd);

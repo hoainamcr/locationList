@@ -18,20 +18,23 @@ export const loadData = ()=>{
 };
 
 export const addData = (data)=>{
+
     return (dispatch) => {
+        let insertData =  JSON.stringify({
+            street: data.street,
+            ward: data.ward,
+            District: data.District,
+            city: data.city,
+            country: data.country,
+            location: data.locationPs
+        });
         fetch('http://localhost:3000/api/addlocation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                street: data.street,
-                ward: data.ward,
-                District: data.District,
-                city: data.city,
-                country: 'Việt Nam',
-            })
+            body: insertData
         })
             .then(response => response.json())
             .then(response => {
@@ -73,6 +76,15 @@ export const isUpdate = (id, index, tg = false) => {
     }
 };
 
+export const clickLocation = (index) => {
+    return (dispatch) => {
+        dispatch ({
+            type: types.CLICK_LOCATION,
+            index: index
+        });
+    }
+};
+
 export const oneData = (id, index)=>{
     return (dispatch) => {
         fetch('http://localhost:3000/api/location/'+id)
@@ -91,19 +103,21 @@ export const oneData = (id, index)=>{
 
 export const updateData = (id, data)=>{
     return (dispatch) => {
+        let insertData =  JSON.stringify({
+            street: data.street,
+            ward: data.ward,
+            District: data.District,
+            city: data.city,
+            country: data.country,
+            location: data.locationPs
+        });
         fetch('http://localhost:3000/api/updatelocation/'+id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                street: data.street,
-                ward: data.ward,
-                District: data.District,
-                city: data.city,
-                country: 'Việt Nam',
-            })
+            body: insertData
         })
             .then(response => {
                 console.log('Update location success!');

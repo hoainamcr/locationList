@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
 const INITIAL = [];
-var listLocation = (state = INITIAL, action ) => {
+let listLocation = (state = INITIAL, action ) => {
     switch (action.type){
         case types.LOAD_DATA:
             return action.payload;
@@ -17,10 +17,19 @@ var listLocation = (state = INITIAL, action ) => {
     }
 };
 
-var isEditing = (state = false, action) => {
+let isEditing = (state = false, action) => {
     switch (action.type){
         case types.EDIT_DATA:
-            return [action.tg, action.id, action.index]
+            return [action.tg, action.id, action.index];
+        default:
+            return state
+    }
+}
+
+let clickPosition = (state = 0, action) => {
+    switch (action.type){
+        case types.CLICK_LOCATION:
+            return action.index;
         default:
             return state
     }
@@ -28,5 +37,6 @@ var isEditing = (state = false, action) => {
 
 export default combineReducers({
     list: listLocation,
-    isEdit: isEditing
+    isEdit: isEditing,
+    idexPosition: clickPosition
 })
