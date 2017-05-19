@@ -13,7 +13,12 @@ class ExportCSV extends Component {
     }
 
     render (){
-        const CSVdata = this.props.data;
+        let dataEP = [['Street', 'Ward', 'District', 'City', 'Country']]
+        this.props.data.map((e, i) => {
+            dataEP.push([e.street, e.ward, e.District, e.city, e.country]);
+        })
+
+        const CSVdata = dataEP;
         return(
             <Container className="gr-btn-ex">
                 <CSVLink
